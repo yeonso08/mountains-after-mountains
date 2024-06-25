@@ -12,6 +12,26 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        pretendard: ['Pretendard'],
+      },
+      fontSize: {
+        h1: ['30px', { lineHeight: '39px', fontWeight: '700' }],
+        h2: ['26px', { lineHeight: '33.8px', fontWeight: '700' }],
+        h3: ['22px', { lineHeight: '30.8px', fontWeight: '600' }],
+        h4: ['20px', { lineHeight: '28px', fontWeight: '700' }],
+        h5: ['18px', { lineHeight: '25.2px', fontWeight: '600' }],
+        b1: ['16px', { lineHeight: '22.4px', fontWeight: '400' }],
+        b2: ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        b3: ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        c1: ['11px', { lineHeight: '15.4px', fontWeight: '400' }],
+        c2: ['10px', { lineHeight: '13px', fontWeight: '400' }],
+      },
+      fontWeight: {
+        regular: 400,
+        semibold: 600,
+        bold: 700,
+      },
       colors: {
         background: 'hsl(var(--background))',
         surface: 'hsl(var(--surface))',
