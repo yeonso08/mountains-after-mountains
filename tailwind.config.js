@@ -21,7 +21,7 @@ module.exports = {
         h3: ['22px', { lineHeight: '30.8px', fontWeight: '600' }],
         h4: ['20px', { lineHeight: '28px', fontWeight: '700' }],
         h5: ['18px', { lineHeight: '25.2px', fontWeight: '600' }],
-        b1: ['16px', { lineHeight: '22.4px', fontWeight: '400' }],
+        b1: ['16px', { lineHeight: '22.4px', fontWeight: '600' }],
         b2: ['14px', { lineHeight: '21px', fontWeight: '400' }],
         b3: ['12px', { lineHeight: '18px', fontWeight: '400' }],
         c1: ['11px', { lineHeight: '15.4px', fontWeight: '400' }],
@@ -64,6 +64,12 @@ module.exports = {
           700: '#454545',
           800: '#3c3c3c',
           900: '#1c1c1c',
+        },
+        blue: {
+          500: '#3487e8',
+        },
+        red: {
+          300: '#f05566',
         },
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
