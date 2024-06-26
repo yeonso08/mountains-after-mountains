@@ -24,7 +24,7 @@ const FooterButton = ({
   return (
     <button
       onClick={onClick}
-      className={`inline-flex items-center justify-center rounded-2xl px-[153px] py-5 text-b1 disabled:bg-gray-200 disabled:text-gray-500 ${variantClasses[variant]} ${className}`}
+      className={`inline-flex w-full items-center justify-center rounded-2xl py-5 text-b1 disabled:bg-gray-200 disabled:text-gray-500 ${variantClasses[variant]} ${className}`}
       disabled={disabled}
       {...props}
     >
