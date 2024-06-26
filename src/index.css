@@ -62,12 +62,8 @@
     @apply overflow-hidden font-pretendard text-text;
   }
 
-  body {
-    @apply overflow-hidden font-pretendard text-text;
-  }
-
   #root {
-    @apply mx-auto min-h-screen max-w-[375px] touch-auto overflow-y-auto scroll-smooth bg-background;
+    @apply mx-auto min-h-screen max-w-[500px] touch-auto overflow-y-auto scroll-smooth shadow-lg;
   }
 
   #root::-webkit-scrollbar {
