@@ -51,7 +51,31 @@
   * {
     @apply border-border;
   }
+
+  html,
+  body,
+  #root {
+    @apply h-full;
+  }
+
   body {
-    @apply bg-background font-pretendard text-text;
+    @apply overflow-hidden font-pretendard text-text;
+  }
+
+  body {
+    @apply overflow-hidden font-pretendard text-text;
+  }
+
+  #root {
+    @apply mx-auto min-h-screen max-w-[375px] touch-auto overflow-y-auto scroll-smooth bg-background;
+  }
+
+  #root::-webkit-scrollbar {
+    display: none;
+  }
+
+  #root {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
