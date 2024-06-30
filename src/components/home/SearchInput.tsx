@@ -1,8 +1,9 @@
 import Mountains from '@/assets/icons/mountains.svg?react'
 import SearchCommandList from './SearchCommandList'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
+import { debounce } from 'lodash'
 
-// 임시 데이터
+// 임시 데이터, 타입은 추후에 api에 적혀있는 대로 수정
 const data = [
   { id: 0, name: '청계산' },
   { id: 1, name: '북한산' },
@@ -12,14 +13,25 @@ const data = [
 
 const SearchInput = () => {
   const [value, setValue] = useState<string>('')
+  const [filteredData, setFilteredData] = useState<{ id: number; name: string }[] | []>([])
 
-  const filteredData = value.length ? data.filter(item => item.name.includes(value)) : []
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value)
-  }
+  useEffect(() => {
+    const debouncedFilter = debounce((inputValue: string) => {
+      if (inputValue.length) {
+        setFilteredData(data.filter(item => item.name.includes(inputValue)))
+      } else {
+        setFilteredData([])
+      }
+    }, 500)
 
-  // TODO debounce 적용 필요
+    debouncedFilter(value)
+
+    return () => {
+      debouncedFilter.cancel()
+    }
+  }, [value])
 
   return (
     <div className="relative">
