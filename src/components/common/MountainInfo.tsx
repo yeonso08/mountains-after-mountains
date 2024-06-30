@@ -12,7 +12,7 @@ type Props = {
 
 const MountainInfo = ({ mountain }: Props) => {
   return (
-    <div className="flex items-start justify-between">
+    <div className="flex items-start justify-between py-2">
       <div>
         <div className="flex gap-2">
           <div className="text-h3 text-gray-900">{mountain.name}</div>
