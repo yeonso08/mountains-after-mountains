@@ -10,7 +10,7 @@ type Props = {
 const SearchCommandList = ({ data }: Props) => {
   return (
     <div
-      className={`absolute top-[52px] m-5 box-border w-[calc(100%-40px)] rounded-lg border border-gray-200 bg-white ${data.length === 0 && 'invisible'} transition-all`}
+      className={`absolute top-[52px] my-5 box-border w-[calc(100%-40px)] rounded-lg border border-gray-200 bg-white ${data.length === 0 && 'invisible'} transition-all`}
     >
       {data?.map((item, index) => (
         <div
