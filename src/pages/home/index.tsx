@@ -1,5 +1,6 @@
 import FooterButton from '@/components/common/button/FooterButton'
 import HomeBanner from '@/components/home/HomeBanner'
+import HomeToggleList from '@/components/home/HomeToggleList'
 import MountainCard from '@/components/home/MountainCard'
 import SearchInput from '@/components/home/SearchInput'
 
@@ -18,6 +19,7 @@ const Home = () => {
       <div className="sticky top-0 z-[999] bg-white">
         <SearchInput />
         <HomeBanner />
+        <HomeToggleList />
       </div>
       <main className="pb-[100px]">
         <MountainCard mountain={mountain} />
