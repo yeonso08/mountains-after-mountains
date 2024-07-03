@@ -33,11 +33,11 @@ axiosInstance.interceptors.response.use(
         window.dispatchEvent(new CustomEvent('unauthorized'))
         sessionStorage.removeItem('authToken')
       } else if (error.response.status === 500) {
-        alert('server error')
+        // alert('server error')
       }
     } else if (error.request) {
       console.error('No response received from server')
-      alert('Cannot connect to the server. Please check your network.')
+      // alert('Cannot connect to the server. Please check your network.')
     } else {
       console.error('Error setting up the request:', error.message)
     }
