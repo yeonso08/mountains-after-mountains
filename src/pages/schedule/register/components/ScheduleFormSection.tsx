@@ -1,6 +1,7 @@
 import TextWithSubtext from '@/pages/schedule/components/TextWithSubtext.tsx'
 import { Select, SelectTrigger } from '@/components/ui/select.tsx'
 import CommonSelect from '@/components/common/CommonSelect.tsx'
+import DatePicker from '@/components/common/DatePicker.tsx'
 
 interface ScheduleFormSectionProps {
   setMountainsValue: (value: { key: string; value: string }) => void
@@ -22,9 +23,10 @@ const ScheduleFormSection = ({ setMountainsValue, mountainsListOption }: Schedul
         subtext="일몰시간을 확인하고 늦지 않게 입산해주세요!"
         asteriskIcon={true}
       >
-        <Select>
-          <SelectTrigger className="rounded-xl bg-white">test</SelectTrigger>
-        </Select>
+        <div className="flex gap-2">
+          <DatePicker />
+          <DatePicker />
+        </div>
       </TextWithSubtext>
       <TextWithSubtext title="어떤 코스로 가시나요?">
         <Select>
