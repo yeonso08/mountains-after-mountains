@@ -3,13 +3,13 @@ import { Button } from '@/components/ui/button.tsx'
 import { Calendar } from '@/components/ui/calendar.tsx'
 import { useState } from 'react'
 
-const DatePicker = () => {
+const DatePicker = ({ title }) => {
   const [date, setDate] = useState<Date | undefined>(new Date())
 
   return (
     <Dialog>
       <DialogTrigger asChild className="w-full rounded-xl bg-white">
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline">{title}</Button>
       </DialogTrigger>
       <DialogContent className="w-auto">
         <Calendar mode="single" selected={date} onSelect={setDate} />
