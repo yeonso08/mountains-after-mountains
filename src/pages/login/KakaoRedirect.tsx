@@ -10,21 +10,29 @@ const KakaoRedirect = () => {
   }
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_APP_API_URL}/kakao/getToken?code=${code}`, {
-      method: 'GET', //
-      headers: headers,
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        console.log(data.result.user_id)
-        console.log(data.result.jwt)
-        navigate('/')
+    if (code) {
+      fetch(`${import.meta.env.VITE_APP_API_URL}/kakao/getToken?code=${code}`, {
+        method: 'GET',
+        headers: headers,
       })
-      .catch(error => {
-        console.error('오류 발생', error)
-      })
-  }, [])
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.result && data.result.user_id && data.result.jwt) {
+            console.log(data.result.user_id)
+            console.log(data.result.jwt)
+            navigate('/')
+          } else {
+            console.error('Invalid response structure:', data)
+          }
+        })
+        .catch(error => {
+          console.error('오류 발생', error)
+        })
+    } else {
+      console.error('Code parameter is missing in the URL')
+    }
+  }, [code, navigate])
 
   return (
     <div>
@@ -32,4 +40,5 @@ const KakaoRedirect = () => {
     </div>
   )
 }
+
 export default KakaoRedirect
