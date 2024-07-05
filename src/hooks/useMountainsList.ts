@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import { getMoutainsList } from '@/services/api/schedule'
+import { getMountainsList } from '@/services/api/schedule'
 
 const useMountainsList = () => {
   return useQuery({
     queryKey: ['mountainsList'],
-    queryFn: getMoutainsList,
+    queryFn: getMountainsList,
     refetchOnWindowFocus: false,
   })
 }

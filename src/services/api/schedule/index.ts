@@ -1,9 +1,10 @@
 import axiosInstance from '@/services/instance/axiosInstance.ts'
 import { AxiosError } from 'axios'
+import { MountainListResponse } from '@/types/schedule/index.ts'
 
-export const getMoutainsList = async () => {
+export const getMountainsList = async () => {
   try {
-    const response = await axiosInstance.get('/main/list')
+    const response = await axiosInstance.get<MountainListResponse>('/main/list')
     return response.data
   } catch (error) {
     if (error instanceof AxiosError) {

@@ -1,8 +1,8 @@
 import TextWithSubtext from '@/pages/schedule/components/TextWithSubtext.tsx'
-import { Select, SelectTrigger } from '@/components/ui/select.tsx'
 import CommonSelect from '@/components/common/CommonSelect.tsx'
 import DatePicker from '@/components/common/DatePicker.tsx'
 import TimePicker from '@/components/common/TimePicker.tsx'
+import { PersonnelOption } from '@/constants/SelectOptions.ts'
 
 interface ScheduleFormSectionProps {
   setMountainsValue: (value: { key: string; value: string }) => void
@@ -30,14 +30,20 @@ const ScheduleFormSection = ({ setMountainsValue, mountainsListOption }: Schedul
         </div>
       </TextWithSubtext>
       <TextWithSubtext title="어떤 코스로 가시나요?">
-        <Select>
-          <SelectTrigger className="rounded-xl bg-white">test</SelectTrigger>
-        </Select>
+        <CommonSelect
+          items={mountainsListOption}
+          placeholder={'코스를 골라주세요'}
+          setSelectedValue={setMountainsValue}
+          ariaLabel={'코스 선택'}
+        />
       </TextWithSubtext>
       <TextWithSubtext title="몇 명의 일행으로 가시나요?">
-        <Select>
-          <SelectTrigger className="rounded-xl bg-white">test</SelectTrigger>
-        </Select>
+        <CommonSelect
+          items={PersonnelOption}
+          placeholder={'산을 골라주세요'}
+          setSelectedValue={setMountainsValue}
+          ariaLabel={'일행 선택'}
+        />
       </TextWithSubtext>
     </div>
   )

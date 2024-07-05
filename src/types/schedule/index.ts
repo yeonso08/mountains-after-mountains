@@ -1,4 +1,4 @@
-interface Mountain {
+export interface Mountain {
   mntiListNo: string
   mntiName: string
   mntiLevel: string
@@ -6,13 +6,13 @@ interface Mountain {
   mntiAdd: string
 }
 
-interface Sort {
+export interface Sort {
   empty: boolean
   sorted: boolean
   unsorted: boolean
 }
 
-interface Pageable {
+export interface Pageable {
   pageNumber: number
   pageSize: number
   sort: Sort
@@ -21,7 +21,7 @@ interface Pageable {
   unpaged: boolean
 }
 
-interface MountainListResponse {
+export interface MountainListResponse {
   content: Mountain[]
   pageable: Pageable
   totalPages: number

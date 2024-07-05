@@ -1,15 +1,14 @@
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import CustomCarousel from '@/components/ui/CustomCarousel.tsx'
-
-const LOOP = false
+import FooterButton from '@/components/common/button/FooterButton.tsx'
 
 interface TimePickerProps {
   title: string
 }
 
-const TimePicker: React.FC<TimePickerProps> = ({ title }) => {
+const TimePicker = ({ title }: TimePickerProps) => {
   const [selectedTime, setSelectedTime] = useState({ hour: 12, minute: 0 })
 
   const handleTimeChange = (hour: number, minute: number) => {
@@ -25,11 +24,13 @@ const TimePicker: React.FC<TimePickerProps> = ({ title }) => {
         <div className="flex flex-col items-center">
           <CustomCarousel onTimeChange={handleTimeChange} initialTime={selectedTime} />
         </div>
-        <DialogFooter>
+        <DialogFooter className="gap-4">
           <DialogClose>
-            <Button className="rounded-2xl bg-surface text-text">취소</Button>
+            <FooterButton size="sm" variant="surface">
+              취소
+            </FooterButton>
           </DialogClose>
-          <Button className="rounded-2xl">선택</Button>
+          <FooterButton size="sm">선택</FooterButton>
         </DialogFooter>
       </DialogContent>
     </Dialog>
