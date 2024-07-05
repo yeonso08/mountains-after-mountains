@@ -20,7 +20,7 @@ const TimePicker = ({ title }: TimePickerProps) => {
       <DialogTrigger asChild className="w-full rounded-xl bg-white">
         <Button variant="outline">{title}</Button>
       </DialogTrigger>
-      <DialogContent className="h-[320px] w-auto">
+      <DialogContent className="w-auto rounded-[20px]">
         <div className="flex flex-col items-center">
           <CustomCarousel onTimeChange={handleTimeChange} initialTime={selectedTime} />
         </div>

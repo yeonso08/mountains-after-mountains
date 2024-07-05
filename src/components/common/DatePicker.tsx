@@ -15,7 +15,7 @@ const DatePicker = ({ title }: DatePickerProps) => {
       <DialogTrigger asChild className="w-full rounded-xl bg-white">
         <Button variant="outline">{title}</Button>
       </DialogTrigger>
-      <DialogContent className="w-auto">
+      <DialogContent className="w-auto rounded-[20px]">
         <Calendar mode="single" selected={date} onSelect={setDate} />
         <DialogFooter className="gap-4">
           <DialogClose>
