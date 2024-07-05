@@ -1,7 +1,7 @@
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import React, { useState } from 'react'
-import Carousel from '@/components/ui/carousel.tsx'
+import CustomCarousel from '@/components/ui/CustomCarousel.tsx'
 
 const LOOP = false
 
@@ -23,7 +23,7 @@ const TimePicker: React.FC<TimePickerProps> = ({ title }) => {
       </DialogTrigger>
       <DialogContent className="h-[320px] w-auto">
         <div className="flex flex-col items-center">
-          <Carousel onTimeChange={handleTimeChange} initialTime={selectedTime} />
+          <CustomCarousel onTimeChange={handleTimeChange} initialTime={selectedTime} />
         </div>
         <DialogFooter>
           <DialogClose>
