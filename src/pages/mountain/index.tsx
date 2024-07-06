@@ -1,8 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-type Props = {}
-
-const Mountain = (props: Props) => {
+const Mountain = () => {
   const { mountainId } = useParams()
 
   return <div>{mountainId}</div>
