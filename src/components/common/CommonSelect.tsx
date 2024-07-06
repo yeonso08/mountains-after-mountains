@@ -29,7 +29,7 @@ const CommonSelect = ({ items, placeholder, setSelectedValue, isError, ariaLabel
       <SelectContent>
         {isError ? (
           <>불러오지 못했습니다.</>
-        ) : items && items.length > 0 ? (
+        ) : Array.isArray(items) && items.length > 0 ? (
           items.map((item, index) => (
             <SelectItem key={item.key} value={item.value || `invalid-${index}`}>
               {item.key}

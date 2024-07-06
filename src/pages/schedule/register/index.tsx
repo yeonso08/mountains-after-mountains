@@ -7,8 +7,7 @@ import { useState } from 'react'
 const RegisterSchedule = () => {
   const [mountainsValue, setMountainsValue] = useState({ key: '', value: '' })
   const { data, isLoading } = useMountainsList()
-  console.log(isLoading, mountainsValue)
-
+  console.log(mountainsValue, isLoading)
   return (
     <div className="flex h-full flex-col">
       <Header title="등산일정 등록" />
