@@ -11,9 +11,17 @@ const Test = () => {
       <div className="text-b1 text-main">Main Color Body1</div>
       <div className="text-b2 text-gray-400">Gray-400 Color Body2</div>
       <div className="text-b3 text-success">Success Color Body3</div>
-      <FooterButton>text</FooterButton>
-      <FooterButton variant="bright">text</FooterButton>
-      <FooterButton disabled={true}>text</FooterButton>
+      <FooterButton size="lg">text</FooterButton>
+      <FooterButton variant="bright" size="lg">
+        text
+      </FooterButton>
+      <FooterButton disabled={true} size="lg">
+        text
+      </FooterButton>
+      <FooterButton size="sm">text</FooterButton>
+      <FooterButton variant="surface" size="sm">
+        text
+      </FooterButton>
     </div>
   )
 }
