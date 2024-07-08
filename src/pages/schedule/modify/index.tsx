@@ -4,19 +4,19 @@ import useMountainsList from '@/hooks/useMountainsList.ts'
 import { useState } from 'react'
 import ScheduleFormSection from '@/pages/schedule/components/ScheduleFormSection.tsx'
 
-const RegisterSchedule = () => {
+const ModifySchedule = () => {
   const [mountainsValue, setMountainsValue] = useState({ key: '', value: '' })
   const { data, isLoading } = useMountainsList()
   console.log(mountainsValue, isLoading)
   return (
     <div className="flex h-full flex-col">
-      <Header title="등산일정 등록" />
+      <Header title="등산일정 수정" />
       <div className="flex h-full flex-col justify-between p-5">
         <ScheduleFormSection mountainsListOption={data} setMountainsValue={setMountainsValue} />
-        <FooterButton>일정 등록하기</FooterButton>
+        <FooterButton>일정 수정하기</FooterButton>
       </div>
     </div>
   )
 }
 
-export default RegisterSchedule
+export default ModifySchedule
