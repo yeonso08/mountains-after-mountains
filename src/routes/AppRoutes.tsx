@@ -6,6 +6,7 @@ import Mountain from '@/pages/mountain'
 import RegisterSchedule from '@/pages/schedule/register'
 import KakaoRedirect from '@/pages/login/KakaoRedirect'
 import ModifySchedule from '@/pages/schedule/modify'
+import ListSchedule from '@/pages/schedule/list'
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
         <Route path="test" element={<Test />} />
         <Route path="home" element={<Home />} />
         <Route path="/" element={<Login />} />
+        <Route path="/schedule" element={<ListSchedule />} />
         <Route path="/schedule/register" element={<RegisterSchedule />} />
         <Route path="/schedule/modify" element={<ModifySchedule />} />
         <Route path="/auth" element={<KakaoRedirect />} />
