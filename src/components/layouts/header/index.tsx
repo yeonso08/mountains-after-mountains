@@ -4,10 +4,10 @@ import { ReactNode } from 'react'
 
 interface HeaderProps {
   title?: string
-  children?: ReactNode
+  rightAction?: ReactNode
 }
 
-const Header = ({ title, children }: HeaderProps) => {
+const Header = ({ title, rightAction }: HeaderProps) => {
   const navigate = useNavigate()
 
   return (
@@ -16,7 +16,7 @@ const Header = ({ title, children }: HeaderProps) => {
         <BackIcon />
       </button>
       <div className="flex w-1/3 justify-center text-h5 text-gray-900">{title}</div>
-      <div className="flex w-1/3 justify-end">{children}</div>
+      <div className="flex w-1/3 justify-end">{rightAction}</div>
     </div>
   )
 }
