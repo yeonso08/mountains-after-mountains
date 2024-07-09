@@ -5,20 +5,26 @@ import TimePicker from '@/components/common/TimePicker.tsx'
 import { PersonnelOption } from '@/constants/SelectOptions.ts'
 
 interface ScheduleFormSectionProps {
+  date: Date | undefined
+  setDate: (date: Date | undefined) => void
   setMountainsValue: (value: { key: string; value: string }) => void
   mountainsListOption: Array<{ key: string; value: string }>
   mountainsListError: boolean
   mountainCourseOption: Array<{ key: string; value: string }>
   mountainCourseError: boolean
   setMountainCourseValue: (value: { key: string; value: string }) => void
+  setPersonnelValue: (value: { key: string; value: string }) => void
 }
 const ScheduleFormSection = ({
+  date,
+  setDate,
   setMountainsValue,
   mountainsListOption,
   mountainsListError,
   mountainCourseOption,
   mountainCourseError,
   setMountainCourseValue,
+  setPersonnelValue,
 }: ScheduleFormSectionProps) => {
   return (
     <div className="flex flex-col gap-[30px]">
@@ -37,7 +43,7 @@ const ScheduleFormSection = ({
         asteriskIcon={true}
       >
         <div className="flex gap-2">
-          <DatePicker title="날짜" />
+          <DatePicker date={date} setDate={setDate} title="날짜" />
           <TimePicker title="시간" />
         </div>
       </TextWithSubtext>
@@ -54,7 +60,7 @@ const ScheduleFormSection = ({
         <CommonSelect
           items={PersonnelOption}
           placeholder={'산을 골라주세요'}
-          setSelectedValue={setMountainsValue}
+          setSelectedValue={setPersonnelValue}
           ariaLabel={'일행 선택'}
         />
       </TextWithSubtext>
