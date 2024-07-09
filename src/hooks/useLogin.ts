@@ -15,7 +15,7 @@ const useLogin = (code: string | null) => {
       try {
         const data = await login(code)
         console.log('Token data:', data)
-        navigate('/')
+        navigate('/home')
       } catch (error) {
         console.error('Error during sign-in:', error)
       }
