@@ -34,3 +34,8 @@ export interface MountainListResponse {
   first: boolean
   empty: boolean
 }
+
+export interface courseListType {
+  courseNo: string
+  courseName: string
+}

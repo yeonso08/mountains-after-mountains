@@ -6,9 +6,20 @@ import { PersonnelOption } from '@/constants/SelectOptions.ts'
 
 interface ScheduleFormSectionProps {
   setMountainsValue: (value: { key: string; value: string }) => void
-  mountainsListOption: any
+  mountainsListOption: Array<{ key: string; value: string }>
+  mountainsListError: boolean
+  mountainCourseOption: Array<{ key: string; value: string }>
+  mountainCourseError: boolean
+  setMountainCourseValue: (value: { key: string; value: string }) => void
 }
-const ScheduleFormSection = ({ setMountainsValue, mountainsListOption }: ScheduleFormSectionProps) => {
+const ScheduleFormSection = ({
+  setMountainsValue,
+  mountainsListOption,
+  mountainsListError,
+  mountainCourseOption,
+  mountainCourseError,
+  setMountainCourseValue,
+}: ScheduleFormSectionProps) => {
   return (
     <div className="flex flex-col gap-[30px]">
       <TextWithSubtext title="어떤 산에 가시나요?" asteriskIcon={true}>
@@ -17,6 +28,7 @@ const ScheduleFormSection = ({ setMountainsValue, mountainsListOption }: Schedul
           placeholder={'산을 골라주세요'}
           setSelectedValue={setMountainsValue}
           ariaLabel={'산 선택'}
+          isError={mountainsListError}
         />
       </TextWithSubtext>
       <TextWithSubtext
@@ -31,10 +43,11 @@ const ScheduleFormSection = ({ setMountainsValue, mountainsListOption }: Schedul
       </TextWithSubtext>
       <TextWithSubtext title="어떤 코스로 가시나요?">
         <CommonSelect
-          items={mountainsListOption}
+          items={mountainCourseOption}
           placeholder={'코스를 골라주세요'}
-          setSelectedValue={setMountainsValue}
+          setSelectedValue={setMountainCourseValue}
           ariaLabel={'코스 선택'}
+          isError={mountainCourseError}
         />
       </TextWithSubtext>
       <TextWithSubtext title="몇 명의 일행으로 가시나요?">
