@@ -3,12 +3,10 @@ import Header from '@/components/layouts/header'
 import useMountainsList from '@/hooks/useMountainsList.ts'
 import { useState } from 'react'
 import ScheduleFormSection from '@/pages/schedule/components/ScheduleFormSection.tsx'
+import DeleteDialog from '@/components/common/DeleteDialog.tsx'
 import useMountainCourse from '@/hooks/useMountainCourse.ts'
-import { useMutation } from '@tanstack/react-query'
-import { registerSchedule } from '@/services/api/schedule'
-import { format } from 'date-fns'
 
-const RegisterSchedule = () => {
+const ModifySchedule = () => {
   const [date, setDate] = useState<Date | undefined>(new Date())
   const [mountainsValue, setMountainsValue] = useState({ key: '', value: '' })
   const [mountainCourseValue, setMountainCourseValue] = useState({ key: '', value: '' })
@@ -17,23 +15,10 @@ const RegisterSchedule = () => {
   const { data: mountainCourseOption, isError: mountainCourseError } = useMountainCourse(
     mountainsValue.value ? mountainsValue.value : null,
   )
-  const registerScheduleMutation = useMutation({ mutationFn: registerSchedule })
-
-  const handleSubmit = () => {
-    const formattedDate = date ? format(date, 'yyyy-MM-dd') : ''
-
-    const scheduleData = {
-      mntiListNo: mountainsValue.value,
-      mntiCourse: mountainCourseValue.value,
-      mntiStrDate: formattedDate,
-      mntiPeople: PersonnelValue.value,
-    }
-    registerScheduleMutation.mutate(scheduleData)
-  }
-
+  console.log(mountainCourseValue, PersonnelValue)
   return (
     <div className="flex h-full flex-col">
-      <Header title="등산일정 등록" />
+      <Header title="등산일정 수정" rightAction={<DeleteDialog />} />
       <div className="flex h-full flex-col justify-between p-5">
         <ScheduleFormSection
           date={date}
@@ -46,10 +31,10 @@ const RegisterSchedule = () => {
           setMountainCourseValue={setMountainCourseValue}
           setPersonnelValue={setPersonnelValue}
         />
-        <FooterButton onClick={handleSubmit}>일정 등록하기</FooterButton>
+        <FooterButton>일정 수정하기</FooterButton>
       </div>
     </div>
   )
 }
 
-export default RegisterSchedule
+export default ModifySchedule

@@ -13,7 +13,7 @@ export const AsteriskIcon = () => (
 )
 export const ExpandDownIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_85_8607)">
+    <g clipPath="url(#clip0_85_8607)">
       <path d="M16.585 8.58496L12 13.17L7.415 8.58496L6 9.99996L12 16L18 9.99996L16.585 8.58496Z" fill="#1C1C1C" />
     </g>
     <defs>

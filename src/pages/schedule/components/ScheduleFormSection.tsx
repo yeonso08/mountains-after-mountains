@@ -5,10 +5,27 @@ import TimePicker from '@/components/common/TimePicker.tsx'
 import { PersonnelOption } from '@/constants/SelectOptions.ts'
 
 interface ScheduleFormSectionProps {
+  date: Date | undefined
+  setDate: (date: Date | undefined) => void
   setMountainsValue: (value: { key: string; value: string }) => void
-  mountainsListOption: any
+  mountainsListOption: Array<{ key: string; value: string }>
+  mountainsListError: boolean
+  mountainCourseOption: Array<{ key: string; value: string }>
+  mountainCourseError: boolean
+  setMountainCourseValue: (value: { key: string; value: string }) => void
+  setPersonnelValue: (value: { key: string; value: string }) => void
 }
-const ScheduleFormSection = ({ setMountainsValue, mountainsListOption }: ScheduleFormSectionProps) => {
+const ScheduleFormSection = ({
+  date,
+  setDate,
+  setMountainsValue,
+  mountainsListOption,
+  mountainsListError,
+  mountainCourseOption,
+  mountainCourseError,
+  setMountainCourseValue,
+  setPersonnelValue,
+}: ScheduleFormSectionProps) => {
   return (
     <div className="flex flex-col gap-[30px]">
       <TextWithSubtext title="어떤 산에 가시나요?" asteriskIcon={true}>
@@ -17,6 +34,7 @@ const ScheduleFormSection = ({ setMountainsValue, mountainsListOption }: Schedul
           placeholder={'산을 골라주세요'}
           setSelectedValue={setMountainsValue}
           ariaLabel={'산 선택'}
+          isError={mountainsListError}
         />
       </TextWithSubtext>
       <TextWithSubtext
@@ -25,23 +43,24 @@ const ScheduleFormSection = ({ setMountainsValue, mountainsListOption }: Schedul
         asteriskIcon={true}
       >
         <div className="flex gap-2">
-          <DatePicker title="날짜" />
+          <DatePicker date={date} setDate={setDate} title="날짜" />
           <TimePicker title="시간" />
         </div>
       </TextWithSubtext>
       <TextWithSubtext title="어떤 코스로 가시나요?">
         <CommonSelect
-          items={mountainsListOption}
+          items={mountainCourseOption}
           placeholder={'코스를 골라주세요'}
-          setSelectedValue={setMountainsValue}
+          setSelectedValue={setMountainCourseValue}
           ariaLabel={'코스 선택'}
+          isError={mountainCourseError}
         />
       </TextWithSubtext>
       <TextWithSubtext title="몇 명의 일행으로 가시나요?">
         <CommonSelect
           items={PersonnelOption}
           placeholder={'산을 골라주세요'}
-          setSelectedValue={setMountainsValue}
+          setSelectedValue={setPersonnelValue}
           ariaLabel={'일행 선택'}
         />
       </TextWithSubtext>
