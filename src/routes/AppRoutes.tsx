@@ -3,7 +3,7 @@ import Test from '@/pages/Test'
 import Home from '@/pages/home'
 import Mountain from '@/pages/mountain'
 import RegisterSchedule from '@/pages/schedule/register'
-import KakaoRedirect from '@/pages/login/KakaoRedirect'
+import KakaoRedirect from '@/pages/login/components/KakaoRedirect'
 import ModifySchedule from '@/pages/schedule/modify'
 import ListSchedule from '@/pages/schedule/list'
 import useAuthStore from '@/store/useAuthStore.ts'
@@ -14,18 +14,16 @@ const AppRoutes = () => {
 
   return (
     <Router>
-      <div className={`relative ${!isLoggedIn && 'blur'}`}>
-        <Routes>
-          <Route path="mountain/:mountainId" element={<Mountain />} />
-          <Route path="test" element={<Test />} />
-          <Route path="home" element={<Home />} />
-          <Route path="/schedule" element={<ListSchedule />} />
-          <Route path="/schedule/register" element={<RegisterSchedule />} />
-          <Route path="/schedule/modify" element={<ModifySchedule />} />
-          <Route path="/auth" element={<KakaoRedirect />} />
-        </Routes>
-      </div>
       {!isLoggedIn && <Login />}
+      <Routes>
+        <Route path="mountain/:mountainId" element={<Mountain />} />
+        <Route path="test" element={<Test />} />
+        <Route path="home" element={<Home />} />
+        <Route path="/schedule" element={<ListSchedule />} />
+        <Route path="/schedule/register" element={<RegisterSchedule />} />
+        <Route path="/schedule/modify" element={<ModifySchedule />} />
+        <Route path="/auth" element={<KakaoRedirect />} />
+      </Routes>
     </Router>
   )
 }
