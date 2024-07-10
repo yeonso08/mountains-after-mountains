@@ -9,10 +9,12 @@ const Login = () => {
     window.location.href = kakaoURL
   }
   return (
-    <div className="flex h-full items-center justify-center">
-      <button onClick={handleLogin}>
-        <img src={kakao_login} alt="kakao_login_img" />
-      </button>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="rounded-lg bg-white p-6 shadow-lg">
+        <button onClick={handleLogin}>
+          <img src={kakao_login} alt="kakao_login_img" />
+        </button>
+      </div>
     </div>
   )
 }

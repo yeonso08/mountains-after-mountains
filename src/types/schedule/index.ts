@@ -1,9 +1,10 @@
-export interface Mountain {
+export interface MountainListResponse {
   mntiListNo: string
   mntiName: string
   mntiLevel: string
   potoFile: string | null
   mntiAdd: string
+  height: number
 }
 
 export interface Sort {
@@ -19,20 +20,6 @@ export interface Pageable {
   offset: number
   paged: boolean
   unpaged: boolean
-}
-
-export interface MountainListResponse {
-  content: Mountain[]
-  pageable: Pageable
-  totalPages: number
-  totalElements: number
-  last: boolean
-  size: number
-  number: number
-  sort: Sort
-  numberOfElements: number
-  first: boolean
-  empty: boolean
 }
 
 export interface courseListType {
