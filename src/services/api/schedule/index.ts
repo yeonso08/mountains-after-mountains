@@ -9,7 +9,7 @@ import {
 
 export const getMountainsList = async () => {
   try {
-    const response = await axiosInstance.get<MountainListResponse>('/main/list')
+    const response = await axiosInstance.get<MountainListResponse[]>('/main/list')
     return response.data
   } catch (error) {
     if (error instanceof AxiosError) {

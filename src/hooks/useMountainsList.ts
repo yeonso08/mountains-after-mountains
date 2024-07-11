@@ -11,7 +11,7 @@ const useMountainsList = () => {
 
   const transformedData = useMemo(() => {
     if (!data) return []
-    return data.content.map(item => ({
+    return data.map(item => ({
       key: item.mntiName,
       value: item.mntiListNo,
     }))
