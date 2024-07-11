@@ -1,28 +1,22 @@
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-import { useState } from 'react'
-import CustomCarousel from '@/components/ui/CustomCarousel.tsx'
 import FooterButton from '@/components/common/button/FooterButton.tsx'
+import CustomTimePicker from '@/pages/schedule/components/CustomTimePicker.tsx'
+import '@/pages/schedule/components/embla.css'
 
 interface TimePickerProps {
   title: string
 }
 
 const TimePicker = ({ title }: TimePickerProps) => {
-  const [selectedTime, setSelectedTime] = useState({ hour: 12, minute: 0 })
-
-  const handleTimeChange = (hour: number, minute: number) => {
-    setSelectedTime({ hour, minute })
-  }
-
   return (
     <Dialog>
       <DialogTrigger asChild className="w-full rounded-xl bg-white">
         <Button variant="outline">{title}</Button>
       </DialogTrigger>
       <DialogContent className="w-auto rounded-[20px]">
-        <div className="flex flex-col items-center">
-          <CustomCarousel onTimeChange={handleTimeChange} initialTime={selectedTime} />
+        <div className="flex items-center justify-center">
+          <CustomTimePicker />
         </div>
         <DialogFooter className="gap-4">
           <DialogClose>
