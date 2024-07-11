@@ -11,10 +11,13 @@ const ModifySchedule = () => {
   const [mountainsValue, setMountainsValue] = useState({ key: '', value: '' })
   const [mountainCourseValue, setMountainCourseValue] = useState({ key: '', value: '' })
   const [PersonnelValue, setPersonnelValue] = useState({ key: '', value: '' })
+  const [hour, setHour] = useState<number | null>(null)
+  const [minute, setMinute] = useState<number | null>(null)
   const { data: mountainsListOption, isError: mountainsListError } = useMountainsList()
   const { data: mountainCourseOption, isError: mountainCourseError } = useMountainCourse(
     mountainsValue.value ? mountainsValue.value : null,
   )
+  console.log('Selected Time:', { hour, minute })
   console.log(mountainCourseValue, PersonnelValue)
   return (
     <div className="flex h-full flex-col">
@@ -30,6 +33,8 @@ const ModifySchedule = () => {
           mountainCourseError={mountainCourseError}
           setMountainCourseValue={setMountainCourseValue}
           setPersonnelValue={setPersonnelValue}
+          setHour={setHour}
+          setMinute={setMinute}
         />
         <FooterButton>일정 수정하기</FooterButton>
       </div>

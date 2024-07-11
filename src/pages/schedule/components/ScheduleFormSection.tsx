@@ -14,6 +14,8 @@ interface ScheduleFormSectionProps {
   mountainCourseError: boolean
   setMountainCourseValue: (value: { key: string; value: string }) => void
   setPersonnelValue: (value: { key: string; value: string }) => void
+  setHour: (hour: number | null) => void
+  setMinute: (minute: number | null) => void
 }
 const ScheduleFormSection = ({
   date,
@@ -25,6 +27,8 @@ const ScheduleFormSection = ({
   mountainCourseError,
   setMountainCourseValue,
   setPersonnelValue,
+  setHour,
+  setMinute,
 }: ScheduleFormSectionProps) => {
   return (
     <div className="flex flex-col gap-[30px]">
@@ -44,7 +48,7 @@ const ScheduleFormSection = ({
       >
         <div className="flex gap-2">
           <DatePicker date={date} setDate={setDate} title="날짜" />
-          <TimePicker title="시간" />
+          <TimePicker title="시간" setHour={setHour} setMinute={setMinute} />
         </div>
       </TextWithSubtext>
       <TextWithSubtext title="어떤 코스로 가시나요?">

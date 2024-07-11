@@ -63,10 +63,12 @@ type PropType = {
   slideCount: number
   perspective: 'left' | 'right'
   isMinute?: boolean
+  setHour: (hour: number | null) => void
+  setMinute: (minute: number | null) => void
 }
 
 export const TimePickerItem = (props: PropType) => {
-  const { slideCount, perspective, label, loop = false, isMinute = false } = props
+  const { slideCount, perspective, label, loop = false, isMinute = false, setHour, setMinute } = props
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop,
     axis: 'y',
@@ -113,6 +115,13 @@ export const TimePickerItem = (props: PropType) => {
       const factor = Math.abs(diffToTarget) < WHEEL_ITEM_SIZE / 2.5 ? 10 : 0.1
       const distance = diffToTarget * factor
       scrollTo.distance(distance, true)
+
+      const selectedIndex = emblaApi.selectedScrollSnap()
+      if (isMinute) {
+        setMinute(slides[selectedIndex])
+      } else {
+        setHour(slides[selectedIndex])
+      }
     })
 
     emblaApi.on('scroll', rotateWheel)
@@ -124,7 +133,7 @@ export const TimePickerItem = (props: PropType) => {
 
     inactivateEmblaTransform(emblaApi)
     rotateWheel(emblaApi)
-  }, [emblaApi, inactivateEmblaTransform, rotateWheel])
+  }, [emblaApi, inactivateEmblaTransform, rotateWheel, setHour, setMinute, slides, isMinute])
 
   return (
     <div className="embla__ios-picker">
