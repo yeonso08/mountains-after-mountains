@@ -18,7 +18,7 @@ const ListCard = () => {
           <div className="text-b2">백운대코스</div>
         </div>
       </div>
-      <div className="py-5">날씨</div>
+      <div className="pt-5">날씨</div>
     </CommonCard>
   )
 }
