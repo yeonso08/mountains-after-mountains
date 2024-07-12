@@ -50,6 +50,8 @@ const RegisterSchedule = () => {
           setPersonnelValue={setPersonnelValue}
           setHour={setHour}
           setMinute={setMinute}
+          hour={hour}
+          minute={minute}
         />
         <FooterButton onClick={handleSubmit}>일정 등록하기</FooterButton>
       </div>

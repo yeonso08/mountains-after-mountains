@@ -35,6 +35,8 @@ const ModifySchedule = () => {
           setPersonnelValue={setPersonnelValue}
           setHour={setHour}
           setMinute={setMinute}
+          hour={minute}
+          minute={minute}
         />
         <FooterButton>일정 수정하기</FooterButton>
       </div>
