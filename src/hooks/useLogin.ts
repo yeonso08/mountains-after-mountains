@@ -1,11 +1,9 @@
 import { useEffect } from 'react'
 import { login } from '@/services/api/authentication'
-import useAuthStore from '@/store/useAuthStore.ts'
 import { useNavigate } from 'react-router-dom'
 
 const useLogin = (code: string | null) => {
   const navigate = useNavigate()
-  const setLogin = useAuthStore(state => state.login)
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -16,18 +14,16 @@ const useLogin = (code: string | null) => {
 
       try {
         const data = await login(code)
-        console.log('Token data:', data)
-        setLogin()
+        localStorage.setItem('token', data.token)
+        localStorage.setItem('nickName', data.nickname)
+        navigate('/home')
       } catch (error) {
         console.error('Error during sign-in:', error)
-      } finally {
-        navigate('/home')
-        setLogin()
       }
     }
 
     fetchToken()
-  }, [code, setLogin])
+  }, [code, navigate])
 }
 
 export default useLogin

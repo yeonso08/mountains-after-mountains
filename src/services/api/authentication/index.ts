@@ -3,10 +3,8 @@ import { AxiosError } from 'axios'
 
 export const login = async (code: string) => {
   try {
-    const response = await axiosInstance.post('/user/kakaoLogin', code, {
-      headers: {
-        'Content-Type': 'text/plain',
-      },
+    const response = await axiosInstance.get('/user/kakaoLogin', {
+      params: { code },
     })
     return response.data
   } catch (error) {
