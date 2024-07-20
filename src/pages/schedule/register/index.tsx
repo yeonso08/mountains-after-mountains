@@ -25,10 +25,10 @@ const RegisterSchedule = () => {
     const formattedDate = date ? format(date, 'yyyy-MM-dd') : ''
 
     const scheduleData = {
-      mntiListNo: mountainsValue.value,
-      mntiCourse: mountainCourseValue.value,
-      mntiStrDate: formattedDate,
-      mntiPeople: PersonnelValue.value,
+      mountainId: mountainsValue.value,
+      courseNo: mountainCourseValue.value,
+      scheduleDate: formattedDate,
+      memberCount: PersonnelValue.value,
     }
     console.log('Selected Time:', { hour, minute })
     registerScheduleMutation.mutate(scheduleData)

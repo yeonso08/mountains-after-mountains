@@ -53,8 +53,8 @@ export interface registerScheduleResponse {
 }
 
 export interface ScheduleDataPayload {
-  mntiStrDate: string
-  mntiListNo: string
-  mntiCourse: string
-  mntiPeople: string
+  mountainId: string
+  courseNo: string
+  scheduleDate: string
+  memberCount: string
 }

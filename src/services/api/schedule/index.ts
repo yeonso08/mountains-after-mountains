@@ -34,7 +34,7 @@ export const getMountainCourse = async (mountainId: string) => {
 
 export const registerSchedule = async (scheduleData: ScheduleDataPayload) => {
   try {
-    const response = await axiosInstance.post<registerScheduleResponse>('/reser/registration', scheduleData)
+    const response = await axiosInstance.post<registerScheduleResponse>('/schedule/create', scheduleData)
     return response.data
   } catch (error) {
     if (error instanceof AxiosError) {
