@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 import Test from '@/pages/Test'
 import Home from '@/pages/home'
 import Mountain from '@/pages/mountain'
@@ -17,6 +17,7 @@ const AppRoutes = () => {
     <Router>
       {!isLoggedIn && <Login />}
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="mountain/:mountainId" element={<Mountain />} />
         <Route path="test" element={<Test />} />
         <Route path="home" element={<Home />} />
@@ -25,6 +26,7 @@ const AppRoutes = () => {
         <Route path="/schedule/modify" element={<ModifySchedule />} />
         <Route path="/auth" element={<KakaoRedirect />} />
         <Route path="invitation" element={<Invitation />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   )
