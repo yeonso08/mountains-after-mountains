@@ -3,6 +3,7 @@ import HomeBanner from '@/components/home/HomeBanner'
 import HomeToggleList from '@/components/home/HomeToggleList'
 import MountainCard from '@/components/home/MountainCard'
 import SearchInput from '@/components/home/SearchInput'
+import { useNavigate } from 'react-router-dom'
 
 const mountain = {
   name: '북한산',
@@ -14,9 +15,11 @@ const mountain = {
 }
 
 const Home = () => {
+  const navigate = useNavigate()
+
   return (
     <section>
-      <div className="sticky top-0 z-[999] bg-white">
+      <div className="sticky top-0 z-40 bg-white">
         <SearchInput />
         <HomeBanner />
         <HomeToggleList />
@@ -28,7 +31,12 @@ const Home = () => {
         <MountainCard mountain={mountain} />
         <MountainCard mountain={mountain} />
       </main>
-      <FooterButton className="fixed bottom-5 mx-5 w-[calc(100%-40px)] max-w-[460px]">일정 추가하기</FooterButton>
+      <FooterButton
+        onClick={() => navigate('/schedule/register')}
+        className="fixed bottom-5 mx-5 w-[calc(100%-40px)] max-w-[460px]"
+      >
+        일정 추가하기
+      </FooterButton>
     </section>
   )
 }
