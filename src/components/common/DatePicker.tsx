@@ -20,7 +20,7 @@ const DatePicker = ({ title, date, setDate }: DatePickerProps) => {
     setIsDateSelected(true)
   }
 
-  const buttonText = isDateSelected && date ? format(date, 'yyyy-MM-dd') : title
+  const buttonText = isDateSelected && date ? format(date, 'MM월 dd일') : title
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

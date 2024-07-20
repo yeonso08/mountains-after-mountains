@@ -23,3 +23,9 @@ export const ExpandDownIcon = () => (
     </defs>
   </svg>
 )
+
+export const NextIcon = () => (
+  <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.99996 0L0.584961 1.415L5.16996 6L0.584961 10.585L1.99996 12L7.99996 6L1.99996 0Z" fill="#1C1C1C" />
+  </svg>
+)
