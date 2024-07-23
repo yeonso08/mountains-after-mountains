@@ -6,16 +6,16 @@ import RegisterSchedule from '@/pages/schedule/register'
 import KakaoRedirect from '@/pages/login/components/KakaoRedirect'
 import ModifySchedule from '@/pages/schedule/modify'
 import ListSchedule from '@/pages/schedule/list'
-import useAuthStore from '@/store/useAuthStore.ts'
 import Login from '@/pages/login'
 import Invitation from '@/pages/invitation'
+import useAuthStore from '@/store/useAuthStore.ts'
 
 const AppRoutes = () => {
-  const isLoggedIn = useAuthStore(state => state.isLoggedIn)
+  const isAuthenticated = useAuthStore(state => state.isAuthenticated)
 
   return (
     <Router>
-      {!isLoggedIn && <Login />}
+      {!isAuthenticated && <Login />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="mountain/:mountainId" element={<Mountain />} />

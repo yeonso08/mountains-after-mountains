@@ -5,7 +5,6 @@ interface ProtectedRouteProps {
 }
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const isAuthenticated = localStorage.getItem('token')
-  // const isLoggedIn = useAuthStore(state => state.isLoggedIn)
 
   if (!isAuthenticated) {
     return true
